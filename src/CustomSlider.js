@@ -1,8 +1,16 @@
-import ReactDOM from 'react-dom';
+import { makeStyles } from '@material-ui/core/styles'
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography'
 
+const useStyles = makeStyles({
+  slider: {
+    color: 'darkgreen',
+    maxWidth: '200px',
+  }
+})
+
 const marks = [
+  { value: 0, label: 0 },
   { value: 1, label: 1 },
   { value: 2, label: 2 },
   { value: 3, label: 3 },
@@ -13,14 +21,15 @@ const marks = [
   { value: 8, label: 8 },
   { value: 9, label: 9 },
   { value: 10, label: 10 },
-
 ]
 
 function CustomSlider (props) {
+  const classes = useStyles();
+
   return (
     <div>
-      <Typography>Test Slider</Typography>
-      <Slider defaultValue={0} marks={marks} step={1} min={0} max={10}/>
+      <Typography>Pain Level</Typography>
+      <Slider className={classes.slider} defaultValue={0} marks={marks} step={1} min={0} max={10}/>
     </div>
   )
 
